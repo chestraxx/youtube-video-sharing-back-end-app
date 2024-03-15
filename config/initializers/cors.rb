@@ -7,12 +7,16 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    # request come from
-    origins "http://localhost:3000"
+    if Rails.env.development?
+      origins 'localhost:3000', 'https://video-sharing-client-ed8e009be101.herokuapp.com'
+    else
+      origins 'https://video-sharing-client-ed8e009be101.herokuapp.com'
+    end
 
     resource "*",
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
       credentials: true
   end
+
 end

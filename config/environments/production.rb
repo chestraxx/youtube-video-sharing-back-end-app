@@ -83,4 +83,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_cable.allowed_request_origins = ENV["CABLE_ALLOWED_REQUEST_ORIGINS"]
+
+  config.session_store :cookie_store, key: '_authentication_app', same_site: :none, secure: true
+  config.middleware.use ActionDispatch::Cookies
+  config.middleware.use config.session_store, config.session_options
+
 end

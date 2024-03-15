@@ -24,10 +24,6 @@ module YoutubeVideoSharingApp
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.session_store :cookie_store, key: '_authentication_app'
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use config.session_store, config.session_options
-
     VideoInfo.provider_api_keys = { youtube: ENV["YOUTUBE_API_KEY"], vimeo: ENV["VIMEO_API_KEY"] }
     VideoInfo.disable_providers = %w[Vimeo] 
   end
