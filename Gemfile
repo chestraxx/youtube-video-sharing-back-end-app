@@ -53,3 +53,5 @@ gem "rails-controller-testing", "~> 1.0"
 gem "pg", "~> 1.5"
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.20'
+
+gem 'video_info'

@@ -66,6 +66,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    ansi (1.5.0)
+    ast (2.4.2)
     bcrypt (3.1.20)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -87,6 +89,7 @@ GEM
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
+    iso8601 (0.13.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -109,9 +112,13 @@ GEM
       timeout
     net-smtp (0.4.0.1)
       net-protocol
+    net_http_timeout_errors (1.0.0)
     nio4r (2.7.0)
     nokogiri (1.16.2-arm64-darwin)
       racc (~> 1.4)
+    oga (3.4)
+      ast
+      ruby-ll (~> 2.1)
     pg (1.5.6)
     psych (5.1.2)
       stringio
@@ -160,12 +167,19 @@ GEM
       psych (>= 4.0.0)
     reline (0.4.3)
       io-console (~> 0.5)
+    ruby-ll (2.1.3)
+      ansi
+      ast
     sqlite3 (1.7.2-arm64-darwin)
     stringio (3.1.0)
     thor (1.3.1)
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    video_info (4.1.0)
+      iso8601 (~> 0.13.0)
+      net_http_timeout_errors (~> 1.0.0)
+      oga (~> 3.4)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -186,6 +200,7 @@ DEPENDENCIES
   rails-controller-testing (~> 1.0)
   sqlite3 (~> 1.4)
   tzinfo-data
+  video_info
 
 RUBY VERSION
    ruby 3.1.2p20

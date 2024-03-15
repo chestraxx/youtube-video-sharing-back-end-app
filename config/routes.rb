@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get :logged_in, to: "sessions#logged_in"
       delete :logout, to: "sessions#logout"
 
+      post :video_info, to: "video#info"
+      get :videos, to: "video#index"
     end
   end
 end
