@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  # namespace :api do
-  #   namespace :v1 do
-  #       end
-  # end
-  resources :sessions, only: [:create]
+  mount ActionCable.server => "/cable"
 
-  resources :registration, only: [:create]
+  namespace :api do
+    namespace :v1 do
+      resources :sessions, only: [:create]
+      resources :registration, only: [:create]
+    
+      get :logged_in, to: "sessions#logged_in"
+      delete :logout, to: "sessions#logout"
 
-  delete :logout, to: "sessions#logout"
-  get :logged_in, to: "sessions#logged_in"
-
+    end
+  end
 end

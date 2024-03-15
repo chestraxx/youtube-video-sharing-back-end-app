@@ -1,4 +1,4 @@
-class SessionsController < ActionController::API
+class Api::V1::SessionsController < ActionController::API
   include CurrentUserConcern
 
   def create
