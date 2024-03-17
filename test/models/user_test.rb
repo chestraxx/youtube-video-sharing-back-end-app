@@ -39,4 +39,13 @@ class UserTest < ActiveSupport::TestCase
 
     # puts user.errors.full_messages
   end
+
+  test "should save user with unique email and password" do
+    assert user = User.new(
+      email: "test@gmail.com",
+      password: "123456"
+    )
+
+    assert user.save
+  end
 end
