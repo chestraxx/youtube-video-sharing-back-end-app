@@ -7,3 +7,7 @@ one:
 two:
   email: MyString
   password_digest: MyString
+
+three:
+  email: "test_email@gmail.com"
+  password_digest: "$2a$12$N4ZBbV7sMdy.MiynlGe0VeXcAVU9..imVBFJhGMU3KTR61/H1JzTW" #123456
