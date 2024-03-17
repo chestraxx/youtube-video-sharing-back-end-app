@@ -22,7 +22,7 @@ class Video < ApplicationRecord
         likes_total: likes_total,
         created_at: created_at,
         user_id: user_id,
-        created_by: user ? user.email : ''
+        created_by: user ? user.email : 'Guest'
       }
     else
       super
