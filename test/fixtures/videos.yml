@@ -10,7 +10,7 @@ one:
   embed_code: MyString
   views_total: MyString
   likes_total: MyString
-  created_by: MyString
+  user_id: MyString
 
 two:
   video_id: MyString
@@ -22,4 +22,4 @@ two:
   embed_code: MyString
   views_total: MyString
   likes_total: MyString
-  created_by: MyString
+  user_id: MyString

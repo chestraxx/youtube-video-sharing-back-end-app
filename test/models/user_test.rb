@@ -4,7 +4,7 @@ class UserTest < ActiveSupport::TestCase
   test "should not save user without params" do
     user = User.new
 
-    assert_not user.save, "saved user without email"
+    assert_not user.save, "saved user without params"
   end
 
   test "should not save user without email" do
