@@ -3,6 +3,10 @@ class Video < ApplicationRecord
 
   belongs_to :user, required: true
 
+  validates :video_id, presence: true
+  validates :video_url, presence: true
+  validates :title, presence: true
+
   def as_json(options = {})
     if options[:index]
       {
@@ -18,7 +22,7 @@ class Video < ApplicationRecord
         likes_total: likes_total,
         created_at: created_at,
         user_id: user_id,
-        created_by: user.email
+        created_by: user ? user.email : ''
       }
     else
       super
