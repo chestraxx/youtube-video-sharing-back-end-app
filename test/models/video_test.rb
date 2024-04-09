@@ -1,6 +1,9 @@
 require "test_helper"
+require "active_support/testing/method_call_assertions"
 
 class VideoTest < ActiveSupport::TestCase
+  include ActiveSupport::Testing::MethodCallAssertions
+
   test "get video should return video instance" do
     video = Video.last
 
@@ -113,5 +116,29 @@ class VideoTest < ActiveSupport::TestCase
     )
 
     assert video.save, "saved with user that is exist"
+  end
+
+  test "should run job after video is saved" do
+    user = User.create(
+      email: "test@gmail.com",
+      password: "123456"
+    )
+
+    video = Video.new(
+      video_id: 1,
+      video_url: "video_url",
+      title: "title",
+      description: "description",
+      thumbnail: "thumbnail_large",
+      embed_url: "embed_url",
+      embed_code: "embed_code",
+      views_total: 0,
+      likes_total: 0,
+      user_id: user.id
+    )
+
+    assert_called(video, :dispatchNotification, times: 1) do
+      video.save
+    end
   end
 end

@@ -1,5 +1,5 @@
 class Video < ApplicationRecord
-  after_create_commit { NotificationRelayJob.perform_later(self.as_json(index: true)) }
+  after_create_commit :dispatchNotification
 
   belongs_to :user, required: true
 
@@ -27,5 +27,9 @@ class Video < ApplicationRecord
     else
       super
     end
+  end
+
+  def dispatchNotification
+    NotificationRelayJob.perform_later(self.as_json(index: true))
   end
 end
