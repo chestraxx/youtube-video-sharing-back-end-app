@@ -97,10 +97,7 @@ class VideoTest < ActiveSupport::TestCase
   end
 
   test "should save video with user that is exist" do
-    user = User.create(
-      email: "test@gmail.com",
-      password: "123456"
-    )
+    user = User.find_by(email: "test_email@gmail.com")
 
     video = Video.new(
       video_id: 1,
@@ -119,10 +116,7 @@ class VideoTest < ActiveSupport::TestCase
   end
 
   test "should run job after video is saved" do
-    user = User.create(
-      email: "test@gmail.com",
-      password: "123456"
-    )
+    user = User.find_by(email: "test_email@gmail.com")
 
     video = Video.new(
       video_id: 1,
